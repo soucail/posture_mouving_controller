@@ -49,7 +49,7 @@ PostureMouvingController::PostureMouvingController(mc_rbdyn::RobotModulePtr rm, 
 
 bool PostureMouvingController::run()
 { 
-  if(leftandrightTask->eval().norm() < 0.01) { switch_target(); }
+  if(leftandrightTask->eval().norm() < 0.1) { switch_target(); }
 
   auto ctrl_mode = datastore().get<std::string>("ControlMode");
 
@@ -72,9 +72,9 @@ void PostureMouvingController::reset(const mc_control::ControllerResetData & res
 void PostureMouvingController::switch_target()
 {
   if (goingLeft){ leftandrightTask->target({{"joint_1", {0}}, {"joint_2", {0.262}}, {"joint_3", {3.14}}, {"joint_4", {-2.269}},
-                   {"joint_5", {1.269}}, {"joint_6", {0.96}},  {"joint_7", {0.51}}});}
-  else {leftandrightTask->target({{"joint_1", {0}}, {"joint_2", {0.262}}, {"joint_3", {3.14}}, {"joint_4", {-2.269}},
                    {"joint_5", {-1.269}}, {"joint_6", {-0.96}},  {"joint_7", {0.51}}});}
+  else {leftandrightTask->target({{"joint_1", {0}}, {"joint_2", {0.262}}, {"joint_3", {3.14}}, {"joint_4", {-2.269}},
+                   {"joint_5", {1.269}}, {"joint_6", {0.96}},  {"joint_7", {0.51}}});}
   goingLeft = !goingLeft;
 }
 
