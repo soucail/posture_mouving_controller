@@ -1,2 +1,0 @@
-/home/soucsouc/devel/install/lib/mc_controller/etc/PostureMouvingController.yaml
-/home/soucsouc/devel/install/lib/mc_controller/PostureMouvingController.so
